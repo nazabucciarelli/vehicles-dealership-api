@@ -12,6 +12,10 @@ from vehicles.views.vehicle_view import VehicleAddView, VehicleDeleteView, Vehic
 from vehicles.views.category_view import CategoryAddView, CategoryEditView, CategoryDeleteView, CategoryListView
 from vehicles.views.commentary_view import CommentaryAddView, CommentaryEditView, CommentaryDeleteView
 from vehicles_dealership_system.decorators import staff_member_required, user_is_comment_owner_or_staff, user_is_comment_owner
+from vehicles.api_views.brand_view import BrandListCreateView
+from vehicles.api_views.vehicle_view import VehicleListCreateView
+from vehicles.api_views.commentary_view import VehicleCommentsListView
+
 
 urlpatterns = [
     path('', VehicleListPaginatedView.as_view(), name='vehicle_list'),
@@ -111,4 +115,10 @@ urlpatterns = [
          user_is_comment_owner(CommentaryEditView.as_view()), name='edit_commentary'),
     path('delete_commentary/<int:commentary_id>/',
          user_is_comment_owner_or_staff(CommentaryDeleteView.as_view()), name='delete_commentary'),
+
+    path('api/brands/', BrandListCreateView.as_view(), name='brand_list_create'),
+    path('api/vehicles/', VehicleListCreateView.as_view(),
+         name='vehicle_list_create'),
+    path('api/comments/<int:vehicle_id>/',
+         VehicleCommentsListView.as_view(), name='vehicle_comments_list'),
 ]

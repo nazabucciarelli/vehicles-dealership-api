@@ -2,11 +2,14 @@
 
 from django.db import connection
 
+
 def run():
     sql_commands = [
+        "PRAGMA foreign_keys=OFF;",
         "DELETE FROM vehicles_vehicle;",
         "DELETE FROM vehicles_model;",
         "DELETE FROM vehicles_category;",
+        "DELETE FROM vehicles_commentary;",
         "DELETE FROM vehicles_brand;",
         "DELETE FROM vehicles_transmission;",
         "DELETE FROM vehicles_tractioncontrol;",
@@ -22,6 +25,7 @@ def run():
         "DELETE FROM sqlite_sequence WHERE name='vehicles_model';",
         "DELETE FROM sqlite_sequence WHERE name='vehicles_category';",
         "DELETE FROM sqlite_sequence WHERE name='vehicles_brand';",
+        "DELETE FROM sqlite_sequence WHERE name='vehicles_commentary';",
         "DELETE FROM sqlite_sequence WHERE name='vehicles_transmission';",
         "DELETE FROM sqlite_sequence WHERE name='vehicles_tractioncontrol';",
         "DELETE FROM sqlite_sequence WHERE name='vehicles_vehiclebodytype';",
@@ -38,7 +42,7 @@ def run():
         "INSERT INTO users_gender (name) VALUES ('Male');",
         "INSERT INTO users_gender (name) VALUES ('Female');",
         "INSERT INTO vehicles_category (name) VALUES ('Trucks'), ('Motorbikes'), ('Cars');",
-        "INSERT INTO vehicles_brand (name) VALUES ('Toyota'), ('Ford'), ('Honda'), ('Harley-Davidson'), ('BMW');",
+        "INSERT INTO vehicles_brand (name) VALUES ('Toyota'), ('Ford'), ('Honda'), ('Harley-Davidson'), ('BMW'), ('Volkswagen');",
         "INSERT INTO vehicles_transmission (name) VALUES ('Automatic'), ('Manual'), ('Semi-Automatic');",
         "INSERT INTO vehicles_tractioncontrol (name) VALUES ('AWD'), ('FWD'), ('RWD'), ('4WD');",
         "INSERT INTO vehicles_vehiclebodytype (name) VALUES ('Coupe'), ('Convertible'), ('Hatchback'), ('Sedan'), ('SUV'), ('Truck'), ('Motorbike');",
@@ -53,7 +57,18 @@ def run():
         "INSERT INTO vehicles_model (name, brand_id, transmission_id, traction_control_id, vehicle_body_type_id, steering_id, engine_type_id, category_id) VALUES ('Hilux', 1, 1, 4, 6, 1, 2, 1);",
         "INSERT INTO vehicles_model (name, brand_id, transmission_id, traction_control_id, vehicle_body_type_id, steering_id, engine_type_id, category_id) VALUES ('Gold Wing', 3, 1, 1, 7, 2, 1, 2);",
         "INSERT INTO vehicles_model (name, brand_id, transmission_id, traction_control_id, vehicle_body_type_id, steering_id, engine_type_id, category_id) VALUES ('X5', 5, 3, 1, 5, 3, 4, 3);",
-        "INSERT INTO vehicles_model (name, brand_id, transmission_id, traction_control_id, vehicle_body_type_id, steering_id, engine_type_id, category_id) VALUES ('Ranger', 2, 2, 4, 6, 1, 2, 1);",
+        "INSERT INTO vehicles_model (name, brand_id, transmission_id, traction_control_id, vehicle_body_type_id, steering_id, engine_type_id, category_id) VALUES ('Supra', 1, 1, 3, 1, 1, 1, 3);",
+        "INSERT INTO vehicles_model (name, brand_id, transmission_id, traction_control_id, vehicle_body_type_id, steering_id, engine_type_id, category_id) VALUES ('Gol', 6, 1, 2, 4, 2, 2, 3);",
+        "INSERT INTO vehicles_vehicle (description, year, price, image, model_id, vehicle_condition_id) VALUES ('Una camioneta robusta y confiable, ideal para terrenos difíciles y trabajos pesados.', 2021, 30000, 'vehicles/hilux.jpeg', 6, 2);",
+        "INSERT INTO vehicles_vehicle (description, year, price, image, model_id, vehicle_condition_id) VALUES ('Deportivo con alto rendimiento y excelente aceleración, diseñado para quienes aman la velocidad.', 2022, 50000, 'vehicles/supra.jpg', 9, 1);",
+        "INSERT INTO vehicles_vehicle (description, year, price, image, model_id, vehicle_condition_id) VALUES ('Un auto económico y confiable, perfecto para el uso diario y fácil de mantener.', 2020, 15000, 'vehicles/gol.jpeg', 10, 2);",
+        "INSERT INTO vehicles_commentary (commentary, datetime, user_id, vehicle_id) VALUES ('Excelente vehículo, muy cómodo y resistente', '2024-10-01 10:00:00', 1, 1);",
+        "INSERT INTO vehicles_commentary (commentary, datetime, user_id, vehicle_id) VALUES ('La Toyota Hilux es ideal para terrenos difíciles', '2024-10-05 14:30:00', 1, 1);",
+        "INSERT INTO vehicles_commentary (commentary, datetime, user_id, vehicle_id) VALUES ('El rendimiento del Supra es impresionante', '2024-10-02 09:15:00', 1, 2);",
+        "INSERT INTO vehicles_commentary (commentary, datetime, user_id, vehicle_id) VALUES ('El Supra tiene una excelente aceleración, pero el interior podría mejorar', '2024-10-06 12:45:00', 1, 2);",
+        "INSERT INTO vehicles_commentary (commentary, datetime, user_id, vehicle_id) VALUES ('El Volkswagen Gol es económico y fácil de mantener', '2024-10-03 11:20:00', 1, 3);",
+        "INSERT INTO vehicles_commentary (commentary, datetime, user_id, vehicle_id) VALUES ('El Gol es un auto confiable para el día a día', '2024-10-07 16:50:00', 1, 3);",
+        "PRAGMA foreign_keys=ON;",
     ]
 
     with connection.cursor() as cursor:
