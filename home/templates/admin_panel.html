@@ -1,0 +1,22 @@
+<!-- templates/admin_panel.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="container d-flex flex-column align-items-center">
+  <h2 class="mt-5">Admin Panel</h2>
+  <p class="text-secondary">Choose the section you want to inspect</p>
+  <div class="d-flex flex-column gap-4 mt-5">
+    <a class="btn btn-primary" href="{% url 'list_category' %}">Categories</a>
+    <a class="btn btn-primary" href="{% url 'list_vehicle' %}">Vehicles</a>
+    <a class="btn btn-primary" href="{% url 'list_brand' %}">Brands</a>
+    <a class="btn btn-primary" href="{% url 'list_model' %}">Models</a>
+    <a class="btn btn-primary" href="{% url 'list_vehicle_condition' %}">Vehicle Conditions</a>
+    <a class="btn btn-primary" href="{% url 'list_engine_type' %}">Engine Types</a>
+    <a class="btn btn-primary" href="{% url 'list_transmission' %}">Transmissions</a>
+    <a class="btn btn-primary" href="{% url 'list_traction_control' %}">Traction Controls</a>
+    <a class="btn btn-primary" href="{% url 'list_vehicle_body_type' %}">Vehicle Body Types</a>
+    <a class="btn btn-primary" href="{% url 'list_steering' %}">Steerings</a>
+  </div>
+</div>
+
+{% endblock %}
+ 

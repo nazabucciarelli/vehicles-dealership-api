@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+  <h1 class="my-5">Vehicles in {{ category.name }}</h1>
+  <div class="row">
+    {% if vehicles %}
+      {% for vehicle in vehicles %}
+          <div class="col-md-4">
+              <a href="{% url 'vehicle_detail' vehicle.id %}" class="card mb-4 text-decoration-none ">
+                  <img src="{{ vehicle.image.url }}" class="card-img-top" alt="{{ vehicle.name }}">
+                  <div class="card-body">
+                      <h5 class="card-title text-dark"> {{vehicle.model.brand.name}} {{ vehicle.model.name }}</h5>
+                      <p class="card-text text-secondary">{{ vehicle.description }}</p>
+                      <p class="card-text text-secondary"><strong class="text-dark">Engine Type:</strong> {{ vehicle.model.engine_type }} </p>
+                      <p class="card-text text-secondary"><strong class="text-dark">Year:</strong> {{ vehicle.year }}</p>
+                      <p class="card-text text-secondary"><strong class="text-dark">Price:</strong> ${{ vehicle.price }}</p>
+                  </div>
+                </a>
+          </div>
+      {% endfor %}
+      {% else %}
+      <div class="d-flex justify-content-center align-items-center" style="height: 50vh;">
+        <h4 class="text-muted">There are no vehicles to see in the <b>{{ category.name }}</b> category yet!</h4>
+      </div>
+      {% endif %}
+  </div>
+</div>
+
+{% endblock %}

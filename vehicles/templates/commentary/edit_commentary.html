@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form method="POST" action="{% url 'edit_commentary' commentary.id %}"
+  class="form-group d-flex flex-column justify-content-center align-items-center">
+  {% csrf_token %}
+  <h2>Edit commentary</h2>
+  <div class="w-100">
+    <label for="comment" class="my-1">Edit your comment</label>
+    <textarea id="comment" name="commentary" class="form-control" rows="3">{{ commentary.commentary }}</textarea>
+    <div class="mt-2">
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}
