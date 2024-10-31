@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-31 18:21-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
+
+
+#: users/models.py:47
+msgid "name"
+msgstr "nombre"
+
+#: users/models.py:48
+msgid "address"
+msgstr "dirección"
+
+#: users/models.py:49
+msgid "phone_number"
+msgstr "número de teléfono"
+
+#: users/models.py:51
+msgid "gender"
+msgstr "género"
+
+#: users/models.py:52
+msgid "city"
+msgstr "ciudad"
+
+msgid "Image"
+msgstr "Imagen"
+
+#: vehicles/models.py:8
+msgid "Category Name"
+msgstr "Nombre de la categoría"
+
+#: vehicles/models.py:15
+msgid "Brand Name"
+msgstr "Nombre de la marca"
+
+#: vehicles/models.py:22
+msgid "Transmission Type"
+msgstr "Tipo de transmisión"
+
+#: vehicles/models.py:29
+msgid "Steering Type"
+msgstr "Tipo de dirección"
+
+#: vehicles/models.py:36 vehicles/models.py:81
+msgid "Traction Control"
+msgstr "Control de tracción"
+
+#: vehicles/models.py:43 vehicles/models.py:87
+msgid "Body Type"
+msgstr "Tipo de carrocería"
+
+#: vehicles/models.py:50 vehicles/models.py:138
+msgid "Condition"
+msgstr "Condición"
+
+#: vehicles/models.py:57 vehicles/models.py:99
+msgid "Engine Type"
+msgstr "Tipo de motor"
+
+#: vehicles/models.py:64
+msgid "Model Name"
+msgstr "Nombre del modelo"
+
+#: vehicles/models.py:69
+msgid "Brand"
+msgstr "Marca"
+
+#: vehicles/models.py:75
+msgid "Transmission"
+msgstr "Transmisión"
+
+#: vehicles/models.py:93
+msgid "Steering"
+msgstr "Dirección"
+
+#: vehicles/models.py:105
+msgid "Category"
+msgstr "Categoría"
+
+#: vehicles/models.py:116
+msgid "Description"
+msgstr "Descripción"
+
+msgid "Vehicles"
+msgstr "Vehículos"
+
+#: vehicles/models.py:121
+msgid "Year"
+msgstr "Año"
+
+#: vehicles/models.py:126
+msgid "Price"
+msgstr "Precio"
+
+#: vehicles/models.py:132
+msgid "Model"
+msgstr "Modelo"
+
+#: vehicles/models.py:147
+msgid "Commentary"
+msgstr "Comentario"
+
+#: vehicles/models.py:150
+msgid "Date and Time"
+msgstr "Fecha y hora"
+
+#: vehicles/models.py:156
+msgid "User"
+msgstr "Usuario"
+
+#: vehicles/models.py:162
+msgid "Vehicle"
+msgstr "Vehículo"
+
+#: vehicles_dealership_system/settings.py:124
+msgid "English"
+msgstr "Inglés"
+
+#: vehicles_dealership_system/settings.py:125
+msgid "Español"
+msgstr "Español"
