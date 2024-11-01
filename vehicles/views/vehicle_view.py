@@ -1,13 +1,17 @@
-from django.shortcuts import render, redirect
-
 from django.contrib.auth.decorators import login_required
-
+from django.shortcuts import get_object_or_404, redirect, render
+from django.utils.translation import (
+    activate,
+    deactivate,
+    get_language,
+    gettext_lazy as _,
+)
 from django.views import View
-from django.views.generic.detail import DetailView
-from django.shortcuts import get_object_or_404
 from django.views.generic import ListView
-from vehicles.models import Vehicle, Commentary
+from django.views.generic.detail import DetailView
 from vehicles.forms import VehicleForm
+from vehicles.models import Vehicle, Commentary
+from users.models import Customer
 from vehicles.repositories.vehicle_repository import VehicleRepository
 
 
@@ -25,6 +29,7 @@ class VehicleAddView(View):
 
 
 class VehicleDetailView(DetailView):
+    
     model = Vehicle
     template_name = 'vehicle/vehicle_detail.html'
     context_object_name = 'vehicle'
@@ -34,11 +39,18 @@ class VehicleDetailView(DetailView):
         return get_object_or_404(Vehicle, id=vehicle_id)
 
     def get_context_data(self, **kwargs):
+        try:
+            customer = Customer.objects.get(user=self.request.user.id)
+            activate(customer.language)
+        except Customer.DoesNotExist:
+            activate('en') 
+        
         context = super().get_context_data(**kwargs)
         vehicle = self.get_object()
         comments = Commentary.objects.filter(vehicle=vehicle)
         context['comments'] = comments
         return context
+
 
 
 class VehicleListPaginatedView(ListView):
