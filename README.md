@@ -93,3 +93,203 @@ Accede al servidor en http://127.0.0.1:8000/
 ### Más información
 
 Para más información, contacta a [Nazareno](https://github.com/nazabucciarelli) o [Valentino](https://github.com/valentinoarballo).
+
+# Documentacion de Vehicles Dealership System API
+
+### Vehículos
+
+- **Listar vehículos paginados**:  
+  `GET /`  
+  Devuelve una lista paginada de todos los vehículos.
+
+- **Listar vehículos**:  
+  `GET /vehicles/`  
+  Devuelve una lista de todos los vehículos. Requiere permisos de staff.
+
+- **Detalles de un vehículo**:  
+  `GET /vehicle/<int:id>/`  
+  Devuelve los detalles de un vehículo específico.
+
+- **Agregar vehículo**:  
+  `POST /vehicles/add/`  
+  Agrega un nuevo vehículo. Requiere permisos de staff.
+
+- **Editar vehículo**:  
+  `PUT /vehicles/edit/<int:vehicle_id>/`  
+  Edita los detalles de un vehículo específico. Requiere permisos de staff.
+
+- **Eliminar vehículo**:  
+  `DELETE /vehicles/delete/<int:vehicle_id>/`  
+  Elimina un vehículo específico. Requiere permisos de staff.
+
+### Marcas
+
+- **Listar marcas**:  
+  `GET /brands/`  
+  Devuelve una lista de todas las marcas. Requiere permisos de staff.
+
+- **Agregar marca**:  
+  `POST /brands/add/`  
+  Agrega una nueva marca. Requiere permisos de staff.
+
+- **Editar marca**:  
+  `PUT /brands/edit/<int:brand_id>/`  
+  Edita los detalles de una marca específica. Requiere permisos de staff.
+
+- **Eliminar marca**:  
+  `DELETE /brands/delete/<int:brand_id>/`  
+  Elimina una marca específica. Requiere permisos de staff.
+
+### Modelos
+
+- **Listar modelos**:  
+  `GET /models/`  
+  Devuelve una lista de todos los modelos. Requiere permisos de staff.
+
+- **Agregar modelo**:  
+  `POST /models/add/`  
+  Agrega un nuevo modelo. Requiere permisos de staff.
+
+- **Editar modelo**:  
+  `PUT /models/edit/<int:model_id>/`  
+  Edita los detalles de un modelo específico. Requiere permisos de staff.
+
+- **Eliminar modelo**:  
+  `DELETE /models/delete/<int:model_id>/`  
+  Elimina un modelo específico. Requiere permisos de staff.
+
+### Tipos de Motor
+
+- **Listar tipos de motor**:  
+  `GET /engine_types/`  
+  Devuelve una lista de todos los tipos de motor. Requiere permisos de staff.
+
+- **Agregar tipo de motor**:  
+  `POST /engine_types/add/`  
+  Agrega un nuevo tipo de motor. Requiere permisos de staff.
+
+- **Editar tipo de motor**:  
+  `PUT /engine_types/edit/<int:engine_type_id>/`  
+  Edita los detalles de un tipo de motor específico. Requiere permisos de staff.
+
+- **Eliminar tipo de motor**:  
+  `DELETE /engine_types/delete/<int:engine_type_id>/`  
+  Elimina un tipo de motor específico. Requiere permisos de staff.
+
+### Transmisiones
+
+- **Listar transmisiones**:  
+  `GET /transmissions/`  
+  Devuelve una lista de todas las transmisiones. Requiere permisos de staff.
+
+- **Agregar transmisión**:  
+  `POST /transmissions/add/`  
+  Agrega una nueva transmisión. Requiere permisos de staff.
+
+- **Editar transmisión**:  
+  `PUT /transmissions/edit/<int:transmission_id>/`  
+  Edita los detalles de una transmisión específica. Requiere permisos de staff.
+
+- **Eliminar transmisión**:  
+  `DELETE /transmissions/delete/<int:transmission_id>/`  
+  Elimina una transmisión específica. Requiere permisos de staff.
+
+### Controles de Tracción
+
+- **Listar controles de tracción**:  
+  `GET /traction_controls/`  
+  Devuelve una lista de todos los controles de tracción. Requiere permisos de staff.
+
+- **Agregar control de tracción**:  
+  `POST /traction_controls/add/`  
+  Agrega un nuevo control de tracción. Requiere permisos de staff.
+
+- **Editar control de tracción**:  
+  `PUT /traction_controls/edit/<int:traction_control_id>/`  
+  Edita los detalles de un control de tracción específico. Requiere permisos de staff.
+
+- **Eliminar control de tracción**:  
+  `DELETE /traction_controls/delete/<int:traction_control_id>/`  
+  Elimina un control de tracción específico. Requiere permisos de staff.
+
+### Tipos de Carrocería de Vehículos
+
+- **Listar tipos de carrocería**:  
+  `GET /vehicle_body_types/`  
+  Devuelve una lista de todos los tipos de carrocería de vehículos. Requiere permisos de staff.
+
+- **Agregar tipo de carrocería**:  
+  `POST /vehicle_body_types/add/`  
+  Agrega un nuevo tipo de carrocería. Requiere permisos de staff.
+
+- **Editar tipo de carrocería**:  
+  `PUT /vehicle_body_types/edit/<int:vehicle_body_type_id>/`  
+  Edita los detalles de un tipo de carrocería específico. Requiere permisos de staff.
+
+- **Eliminar tipo de carrocería**:  
+  `DELETE /vehicle_body_types/delete/<int:vehicle_body_type_id>/`  
+  Elimina un tipo de carrocería específico. Requiere permisos de staff.
+
+### Dirección
+
+- **Listar direcciones**:  
+  `GET /steerings/`  
+  Devuelve una lista de todas las direcciones. Requiere permisos de staff.
+
+- **Agregar dirección**:  
+  `POST /steerings/add/`  
+  Agrega una nueva dirección. Requiere permisos de staff.
+
+- **Editar dirección**:  
+  `PUT /steerings/edit/<int:steering_id>/`  
+  Edita los detalles de una dirección específica. Requiere permisos de staff.
+
+- **Eliminar dirección**:  
+  `DELETE /steerings/delete/<int:steering_id>/`  
+  Elimina una dirección específica. Requiere permisos de staff.
+
+### Categorías
+
+- **Listar categorías**:  
+  `GET /categories/`  
+  Devuelve una lista de todas las categorías. Requiere permisos de staff.
+
+- **Agregar categoría**:  
+  `POST /categories/add/`  
+  Agrega una nueva categoría. Requiere permisos de staff.
+
+- **Editar categoría**:  
+  `PUT /categories/edit/<int:category_id>/`  
+  Edita los detalles de una categoría específica. Requiere permisos de staff.
+
+- **Eliminar categoría**:  
+  `DELETE /categories/delete/<int:category_id>/`  
+  Elimina una categoría específica. Requiere permisos de staff.
+
+### Comentarios
+
+- **Agregar comentario**:  
+  `POST /add_commentary/`  
+  Agrega un nuevo comentario sobre un vehículo.
+
+- **Editar comentario**:  
+  `PUT /edit_commentary/<int:commentary_id>/`  
+  Edita un comentario específico. Requiere que el usuario sea el propietario del comentario.
+
+- **Eliminar comentario**:  
+  `DELETE /delete_commentary/<int:commentary_id>/`  
+  Elimina un comentario específico. Requiere que el usuario sea el propietario o miembro del personal.
+
+## Endpoints de la API REST
+
+- **Lista y creación de marcas**:  
+  `GET, POST /api/brands/`  
+  Permite listar y crear marcas. (API RESTful)
+
+- **Lista y creación de vehículos**:  
+  `GET, POST /api/vehicles/`  
+  Permite listar y crear vehículos. (API RESTful)
+
+- **Listar comentarios de un vehículo**:  
+  `GET /api/comments/<int:vehicle_id>/`  
+  Devuelve una lista de comentarios para un vehículo específico. (API RESTful)
