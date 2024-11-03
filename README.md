@@ -279,17 +279,3 @@ Para más información, contacta a [Nazareno](https://github.com/nazabucciarelli
 - **Eliminar comentario**:  
   `DELETE /delete_commentary/<int:commentary_id>/`  
   Elimina un comentario específico. Requiere que el usuario sea el propietario o miembro del personal.
-
-## Endpoints de la API REST
-
-- **Lista y creación de marcas**:  
-  `GET, POST /api/brands/`  
-  Permite listar y crear marcas. (API RESTful)
-
-- **Lista y creación de vehículos**:  
-  `GET, POST /api/vehicles/`  
-  Permite listar y crear vehículos. (API RESTful)
-
-- **Listar comentarios de un vehículo**:  
-  `GET /api/comments/<int:vehicle_id>/`  
-  Devuelve una lista de comentarios para un vehículo específico. (API RESTful)
