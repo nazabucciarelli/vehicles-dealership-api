@@ -67,11 +67,19 @@ class VehicleDetailView(DetailView):
                 activate(customer.language)
             except Customer.DoesNotExist:
                 activate('es')
+        else:
+            current_language = get_language()
+            if current_language == 'en':
+                user_language = 'en'
+            else:
+                user_language = 'es'
         
         context['user_language'] = user_language
+        
         vehicle = self.get_object()
         comments = Commentary.objects.filter(vehicle=vehicle)
         context['comments'] = comments
+        
         return context
 
 
