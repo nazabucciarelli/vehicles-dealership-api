@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import (
     activate,
@@ -27,9 +28,26 @@ class VehicleAddView(View):
             return redirect('admin_panel')
         return render(request, 'vehicle/add_vehicle.html', {'form': form})
 
+class UpdateLang(View):
+    def get(self, request):
+        if request.user.is_authenticated:
+            customer = get_object_or_404(Customer, user=request.user)
+            if customer.language == 'es':
+                customer.language = 'en'
+            else:
+                customer.language = 'es'
+            customer.save()
+            activate(customer.language)
+        
+        else:
+            current_language = get_language()
+            new_language = 'en' if current_language == 'es' else 'es'
+            activate(new_language)
+
+        return redirect(request.META.get('HTTP_REFERER', 'index'))
+
 
 class VehicleDetailView(DetailView):
-    
     model = Vehicle
     template_name = 'vehicle/vehicle_detail.html'
     context_object_name = 'vehicle'
@@ -39,13 +57,18 @@ class VehicleDetailView(DetailView):
         return get_object_or_404(Vehicle, id=vehicle_id)
 
     def get_context_data(self, **kwargs):
-        try:
-            customer = Customer.objects.get(user=self.request.user.id)
-            activate(customer.language)
-        except Customer.DoesNotExist:
-            activate('en') 
-        
         context = super().get_context_data(**kwargs)
+        
+        user_language = 'es'
+        if self.request.user.is_authenticated:
+            try:
+                customer = Customer.objects.get(user=self.request.user.id)
+                user_language = customer.language
+                activate(customer.language)
+            except Customer.DoesNotExist:
+                activate('es')
+        
+        context['user_language'] = user_language
         vehicle = self.get_object()
         comments = Commentary.objects.filter(vehicle=vehicle)
         context['comments'] = comments

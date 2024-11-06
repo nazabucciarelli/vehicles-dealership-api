@@ -8,7 +8,7 @@ from vehicles.views.traction_control_view import TractionControlAddView, Tractio
 from vehicles.views.transmission_view import TransmissionAddView, TransmissionDeleteView, TransmissionEditView, TransmissionListView
 from vehicles.views.vehicle_body_view import VehicleBodyTypeAddView, VehicleBodyTypeDeleteView, VehicleBodyTypeEditView, VehicleBodyTypeListView
 from vehicles.views.vehicle_condition_view import VehicleConditionAddView, VehicleConditionDeleteView, VehicleConditionEditView, VehicleConditionListView
-from vehicles.views.vehicle_view import VehicleAddView, VehicleDeleteView, VehicleEditView, VehicleListView, VehicleListPaginatedView, VehicleDetailView
+from vehicles.views.vehicle_view import VehicleAddView, VehicleDeleteView, VehicleEditView, VehicleListView, VehicleListPaginatedView, VehicleDetailView, UpdateLang
 from vehicles.views.category_view import CategoryAddView, CategoryEditView, CategoryDeleteView, CategoryListView
 from vehicles.views.commentary_view import CommentaryAddView, CommentaryEditView, CommentaryDeleteView
 from vehicles_dealership_system.decorators import staff_member_required, user_is_comment_owner_or_staff, user_is_comment_owner
@@ -92,6 +92,8 @@ urlpatterns = [
          name='list_vehicle'),
     path('vehicle/<int:id>/', VehicleDetailView.as_view(),
          name='vehicle_detail'),
+     path('update_lang/', UpdateLang.as_view(),
+         name='update_lang'),
     path('vehicles/add/', staff_member_required(VehicleAddView.as_view()),
          name='add_vehicle'),
     path('vehicles/edit/<int:vehicle_id>/',

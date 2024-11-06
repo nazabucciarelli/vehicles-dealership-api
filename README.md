@@ -72,7 +72,17 @@ Crea un superusuario para acceder al panel de administración de Django.
 python manage.py createsuperuser
 ```
 Sigue las instrucciones en pantalla para configurar el superusuario.
-### 9. Ejecuta el servidor de desarrollo
+
+
+### 9. Compila las traducciones
+
+Compila las traducciones.
+
+```bash
+django-admin compilemessages
+```
+
+### 10. Ejecuta el servidor de desarrollo
 
 Inicia el servidor de desarrollo para asegurarte de que todo está funcionando correctamente.
 
