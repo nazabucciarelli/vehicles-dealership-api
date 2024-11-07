@@ -63,7 +63,6 @@ Ejecuta el script necesario después de realizar las migraciones de la base de d
 
 python manage.py runscript post_migration_script
 ```
-
 ### 8. Crea un superusuario
 
 Crea un superusuario para acceder al panel de administración de Django.
@@ -73,8 +72,15 @@ python manage.py createsuperuser
 ```
 Sigue las instrucciones en pantalla para configurar el superusuario.
 
+### 9. Instalar 'gettext' si no lo tienes en tu sistema operativo
 
-### 9. Compila las traducciones
+Correr el siguiente comando en la terminal.
+
+```bash
+sudo apt-get install gettext
+```
+
+### 10. Compila las traducciones
 
 Compila las traducciones.
 
@@ -82,7 +88,7 @@ Compila las traducciones.
 django-admin compilemessages
 ```
 
-### 10. Ejecuta el servidor de desarrollo
+### 11. Ejecuta el servidor de desarrollo
 
 Inicia el servidor de desarrollo para asegurarte de que todo está funcionando correctamente.
 
