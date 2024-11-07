@@ -10,8 +10,8 @@ Requisitos
 Seguí los siguientes pasos para configurar el entorno de desarrollo:
 
 ### 1. Clona el repositorio
-```bash
 
+```bash
 git clone git@github.com:nazabucciarelli/vehicles-dealership-system.git
 cd vehicles-dealership-system
 ```
@@ -112,11 +112,29 @@ Para más información, contacta a [Nazareno](https://github.com/nazabucciarelli
 
 # Documentacion de Vehicles Dealership System API
 
+### Usuarios
+
+- **Agregar cliente via API**:  
+  `POST /api/users/`  
+  Agrega un nuevo cliente. Requiere permisos de staff.
+
+- **Obtener clientes via API**:  
+  `GET /api/users/`  
+  Obtener clientes. No requiere permisos de staff.
+
+- **Iniciar sesion via API**:  
+  `POST /api/login/`  
+  Iniciar sesion mandando username y password.
+
 ### Vehículos
 
 - **Listar vehículos paginados**:  
   `GET /`  
   Devuelve una lista paginada de todos los vehículos.
+
+- **Listar vehículos via API**:  
+  `GET /api/vehicles/`  
+  Devuelve una lista de todos los vehículos. No requiere permisos de staff.
 
 - **Listar vehículos**:  
   `GET /vehicles/`  
@@ -140,9 +158,17 @@ Para más información, contacta a [Nazareno](https://github.com/nazabucciarelli
 
 ### Marcas
 
+- **Listar marcas via API**:  
+  `GET /api/brands`  
+  Devuelve una lista de todas las marcas, pero via API. NO requiere permisos de staff.
+
 - **Listar marcas**:  
   `GET /brands/`  
   Devuelve una lista de todas las marcas. Requiere permisos de staff.
+
+  - **Agregar marca via API**:  
+  `POST /api/brands/`  
+  Agrega una nueva marca, pero via API. Requiere permisos de staff.
 
 - **Agregar marca**:  
   `POST /brands/add/`  
@@ -295,3 +321,7 @@ Para más información, contacta a [Nazareno](https://github.com/nazabucciarelli
 - **Eliminar comentario**:  
   `DELETE /delete_commentary/<int:commentary_id>/`  
   Elimina un comentario específico. Requiere que el usuario sea el propietario o miembro del personal.
+
+- **Obtener comentarios via API**:  
+  `GET /api/comments/<int:vehicle_id>/`  
+  Obtener comentarios sobre un vehículo.
